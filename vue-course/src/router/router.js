@@ -93,6 +93,10 @@ export default [
     }
   }
  },
+ {
+   path: '/store',
+   component: () => import ('@/views/store.vue')
+ },
  //以下*号是匹配任何的路径,但一定要放在页面的最后面
  //所有页面当匹配不到静态资源，所有都指向index.html，但还有一个问题，当匹配不到静态资源，而且前端路由也匹配不到组件的话，所以在路由(router.vue)列表最后设置一个匹配的规则
  {

@@ -20,7 +20,7 @@ const router = new Router({
 const HAS_LOGINED = true
 //router.beforeEach() 这个方法能注册一个全局全制守卫，并给三个参数,to代表的是即将跳转的那个路由对象, from是当前将要离开的路由对象,next是函数，如果要用到跳转，就会用到next
 router.beforeEach((to, from, next) => {
-  //根据每一个不同的相关页面title显示不同的内容设置,并在该页面index头部引入进来
+  //根据每一个不同的相关页面title显示不同的内容设置,并在该页面index头部引入进来,（定义在与业务相关的组件里）
   to.meta && setTitle(to.meta.title)
   //判断用户是不是在登录页，如果是已经登录就继续，否则就进入到login去登录
   if (to.name !== 'login') {
