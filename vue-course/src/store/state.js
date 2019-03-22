@@ -8,7 +8,10 @@
 //7. 并挂载到Vue的根实例上
 
 //这里是定义一个state
+//这里定的值可以在各个组件里使用
 const state = {
-    appName: 'admin'
+    appName: 'admin',
+    //1. 以下假如没有定义，但之后又想添加进去，这种只能到mutations.js里去修改
+    // appVersion:'1.0'
 }
 export default state
