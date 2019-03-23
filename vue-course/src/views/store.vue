@@ -2,6 +2,19 @@
     <div>
      <!-- 3. 使用组件。  用v-model双向绑定inputValue这个值,然后inputValue这个值在date返回 -->
      <a-input v-model="inputValue"/>
+      <!-- <a-input :value="inputValue" @input="handleInput"/> -->
+
+       <!-- 
+           <input v-model="inputValue" />
+           === 等价
+           <input :value="inputValue" @input="handleInput"/>
+           <input :value="inputValue" @input="inputValue = $event.target.value"/> 
+            -->
+
+     <!-- 
+     等价以上语法糖代码
+     <a-input :value="inputValue" @input="handleInput"/>
+     <a-input :value="inputValue" @input="inputValue = $event.target.value"/> -->
      <p>{{inputValue}} -> lastLetter is {{ inputValueLastLetter }}</p>
      <!-- 绑定一个content值为：inputValue -->
      <!-- <a-Show :content="inputValue"/> -->
@@ -24,6 +37,7 @@ import AShow from '_c/AShow'
 import { mapState, mapGetters, mapMutations } from 'vuex'
 
 import { stat } from 'fs';
+import { log } from 'util';
 
 export default {
     name: 'store',
@@ -118,6 +132,14 @@ export default {
             console.log(this);
             this.SET_USER_NAME('vue-cource') 
             
+        },
+
+        handleInput(e){
+        //    console.log('@input事件触发了')
+        //    const value = e.target.value
+        //    console.log("value", value);
+        //     this.inputValue = value;
+            // this.inputValue = e.target.value;
         }
 
     }
